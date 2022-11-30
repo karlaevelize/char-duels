@@ -16,7 +16,6 @@ router.post("/:id/start", async (request, response, next) => {
 
     //get only the participants id
     const tourChars = tour.chars.map((c) => c.id);
-    console.log(tourChars);
 
     //define the pairs for the duels
     let pairs = [];
@@ -31,7 +30,6 @@ router.post("/:id/start", async (request, response, next) => {
       pairs.push({ charA: person1, charB: person2 });
     }
 
-    console.log("pairs", pairs);
     //create round 1 duels
     const duelsRoundOne = pairs.map(async (duel) => {
       const allDuels = await Duel.create({
