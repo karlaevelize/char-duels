@@ -10,7 +10,7 @@ router.post("/:id/start", async (request, response, next) => {
   try {
     const { id } = request.params;
     //get a tournament with its participants
-    const tour = await Tour.findByPk(2, {
+    const tour = await Tour.findByPk(id, {
       include: { model: Char, attributes: ["id"], through: { attributes: [] } },
     });
 
